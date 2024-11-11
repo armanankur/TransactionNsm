@@ -15,9 +15,10 @@ import { CircleArrowOutDownRight } from "lucide-react";
 type CardProps = {
   name: string;
   imageSrc: string;
+  isDarkMode: boolean;
 };
 
-const Cards: React.FC<CardProps> = ({ name, imageSrc }) => {
+const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Function to toggle modal
@@ -27,10 +28,16 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc }) => {
   return (
     <div>
       <Card
-        className="w-full shadow-lg  p-1  cursor-pointer hover:bg-gray-50"
+        className={`${
+          isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950 "
+        }w-full shadow-lg  p-1  cursor-pointer  `}
         onClick={toggleDialog}
       >
-        <CardContent className=" flex justify-between items-center flex-wrap gap-2  p-2  w-full">
+        <CardContent
+          className={`${
+            isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950 "
+          } flex justify-between items-center flex-wrap gap-2  p-2  w-full `}
+        >
           {/* bg-red-400 */}
           <div className="flex justify-between w-fit items-center  flex-wrap py-2">
             {/* bg-slate-600  */}
@@ -40,19 +47,29 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc }) => {
             </div>
 
             {/* Center Info Section */}
-            <div className="flex flex-col justify-center items-start text-left m-1 p-1  ">
+            <div
+              className={`${
+                isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+              } flex flex-col justify-center items-start text-left m-1 p-1`}
+            >
               <div className="flex  justify-centeritems-center space-x-2 text-lg font-sans">
-                <span className="text-gray-700">Received</span>
-                <span className="text-gray-400 bg-gray-200  w-fit text-right items-center flex justify-around item-center rounded-xl">
+                <span>Received</span>
+                <span
+                  className={`${
+                    isDarkMode
+                      ? "bg-white text-slate-900"
+                      : " bg-gray-200 text-blue-950"
+                  }   w-fit text-right items-center flex justify-around item-center rounded-xl`}
+                >
                   <img
                     src={imageSrc}
                     alt="coins_image"
                     className="w-5 h-5 rounded-xl"
                   ></img>
-                  <small className="text-right ">{name}</small>
+                  <small className="text-right font-semibold">{name}</small>
                 </span>
               </div>
-              <p className="text-gray-400 text-sm">11:25 AM</p>
+              <p className=" text-sm">11:25 AM</p>
             </div>
           </div>
           {/* Right Amount Section */}
@@ -67,24 +84,38 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc }) => {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogPortal>
           <DialogOverlay className="fixed inset-0 bg-black/50 backdrop-blur-sm " />
-          <DialogContent className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl lg:w-full max-w-lg [&>button]:hidden sm:vh-screen sm:w-3/4 ">
-            <DialogHeader className="px-6 py-4 border-b">
+          <DialogContent
+            className={`${
+              isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+            }fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  rounded-xl shadow-xl lg:w-full max-w-lg [&>button]:hidden sm:vh-screen sm:w-3/4`}
+          >
+            <DialogHeader
+              className={`${
+                isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+              } px-6 py-4 border-b`}
+            >
               <div className="flex items-center justify-between">
                 <DialogTitle className="text-xl font-semibold">
                   Deposit
                 </DialogTitle>
-                <div className="text-gray-400 bg-gray-200 py-1 rounded-xl w-16 flex items-center justify-around">
+                <div className=" border-gray-100 border-2 py-1 rounded-xl w-16 flex items-center justify-around">
                   <img
                     src={imageSrc}
                     alt={`${name} icon`}
                     className="w-5 h-7 "
                   />
-                  <small>{name}</small>
+                  <small className="font-semibold">{name}</small>
                 </div>
               </div>
             </DialogHeader>
 
-            <div className="p-8 space-y-5">
+            <div
+              className={`${
+                isDarkMode
+                  ? "bg-black text-slate-50 "
+                  : "bg-white text-blue-950"
+              } p-8 space-y-5 `}
+            >
               <div className="flex justify-between items-center rounded-xl p-6 shadow-md">
                 <div className="flex-shrink-0 p-2 bg-gray-200 rounded-full">
                   <CircleArrowOutDownRight className="text-blue-600 h-6 w-6" />
@@ -99,38 +130,38 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc }) => {
               <div className="space-y-4 divide-y">
                 <div className="flex justify-between items-center py-3">
                   <p className="font-bold">Amount</p>
-                  <p className="text-sm font-medium text-slate-500">
-                    1000 {name}
-                  </p>
+                  <p className="text-sm font-medium ">1000 {name}</p>
                 </div>
 
                 <div className="flex justify-between items-center py-3">
                   <p className="font-bold">Current Equiv Amount</p>
-                  <p className="text-sm font-medium text-slate-500">
-                    407.31 USD
-                  </p>
+                  <p className="text-sm font-medium ">407.31 USD</p>
                 </div>
 
                 <div className="flex justify-between items-center py-3">
                   <p className="font-bold">Date</p>
-                  <p className="text-sm font-medium text-slate-500">
+                  <p className="text-sm font-medium ">
                     October 30, 2024 at 11:25
                   </p>
                 </div>
 
                 <div className="flex justify-between items-center py-3">
                   <p className="font-bold">Note</p>
-                  <p className="text-sm font-medium text-slate-500">
-                    Demo Deposit
-                  </p>
+                  <p className="text-sm font-medium ">Demo Deposit</p>
                 </div>
               </div>
             </div>
 
-            <DialogFooter className="px-6 py-4  border-t justify-end">
+            <DialogFooter
+              className={`${
+                isDarkMode
+                  ? "bg-black text-slate-50  hover:text-gray-900"
+                  : "bg-white text-blue-950"
+              } px-6 py-4  border-t justify-end`}
+            >
               <Button
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors mt-5 "
+                className="px-4 py-2  rounded-xl hover:bg-slate-100 transition-colors mt-5 "
               >
                 Close
               </Button>
