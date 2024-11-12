@@ -1,4 +1,4 @@
-import Cards from "../component/Card";
+import Cards from "./Card";
 import { Button } from "../../../@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import {
@@ -53,7 +53,7 @@ const LatestTransaction = () => {
         type="single"
         collapsible
         className={`${
-          isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950 "
+          isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950 "
         } px-5 py-5`}
       >
         <AccordionItem value="item-1">
@@ -62,7 +62,7 @@ const LatestTransaction = () => {
           </AccordionTrigger>
           <AccordionContent
             className={`${
-              isDarkMode ? "bg-black text-slate-50 " : "bg-white text-blue-950"
+              isDarkMode ? "bg-neutral-950 text-slate-50 " : "bg-white text-gray-950"
             } p-4 `}
           >
             <div className="flex flex-col space-y-2 ">
@@ -74,8 +74,8 @@ const LatestTransaction = () => {
                     onClick={handleClick}
                     className={`${
                       isDarkMode
-                        ? "bg-black text-slate-50  border-gray-200 border-2"
-                        : "bg-white text-blue-950"
+                        ? "bg-neutral-950 text-slate-50  border-gray-200 border-2"
+                        : "bg-white text-gray-950"
                     } rounded-xl`}
                   >
                     {isModeButton ? <Sun /> : <Moon />}
@@ -101,7 +101,7 @@ const LatestTransaction = () => {
                   className={`${
                     isDarkMode
                       ? "bg-black text-slate-50 "
-                      : "bg-white text-blue-950 hover:bg-slate-100"
+                      : "bg-white text-gray-950 hover:bg-slate-100"
                   } flex justify-center items-center  rounded-xl   mt-5 `}
                 >
                   See More

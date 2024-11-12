@@ -29,13 +29,13 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
     <div>
       <Card
         className={`${
-          isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950 "
+          isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950 "
         }w-full shadow-lg  p-1  cursor-pointer  `}
         onClick={toggleDialog}
       >
         <CardContent
           className={`${
-            isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950 "
+            isDarkMode ? "bg-black  text-slate-50" : "bg-white hover:bg-slate-50 text-blue-950 "
           } flex justify-between items-center flex-wrap gap-2  p-2  w-full `}
         >
           {/* bg-red-400 */}
@@ -43,13 +43,13 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
             {/* bg-slate-600  */}
             {/* Left Icon Section */}
             <div className="flex-shrink-0 p-1 bg-gray-100 rounded-full">
-              <CircleArrowOutDownRight className="text-green-400 size-6 " />
+              <CircleArrowOutDownRight className="text-green-600 size-6 " />
             </div>
 
             {/* Center Info Section */}
             <div
               className={`${
-                isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+                isDarkMode ? "bg-black text-slate-50" : "bg-white text-gray-950"
               } flex flex-col justify-center items-start text-left m-1 p-1`}
             >
               <div className="flex  justify-centeritems-center space-x-2 text-lg font-sans">
@@ -58,7 +58,7 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
                   className={`${
                     isDarkMode
                       ? "bg-white text-slate-900"
-                      : " bg-gray-200 text-blue-950"
+                      : " bg-gray-200 text-gray-950"
                   }   w-fit text-right items-center flex justify-around item-center rounded-xl`}
                 >
                   <img
@@ -86,12 +86,12 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
           <DialogOverlay className="fixed inset-0 bg-black/50 backdrop-blur-sm " />
           <DialogContent
             className={`${
-              isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+              isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950"
             }fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  rounded-xl shadow-xl lg:w-full max-w-lg [&>button]:hidden sm:vh-screen sm:w-3/4`}
           >
             <DialogHeader
               className={`${
-                isDarkMode ? "bg-black text-slate-50" : "bg-white text-blue-950"
+                isDarkMode ? "bg-neutral-950  text-slate-50" : "bg-white text-gray-950"
               } px-6 py-4 border-b`}
             >
               <div className="flex items-center justify-between">
@@ -112,13 +112,13 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
             <div
               className={`${
                 isDarkMode
-                  ? "bg-black text-slate-50 "
-                  : "bg-white text-blue-950"
+                  ? "bg-neutral-950 text-slate-50 "
+                  : "bg-white text-gray-950"
               } p-8 space-y-5 `}
             >
               <div className="flex justify-between items-center rounded-xl p-6 shadow-md">
-                <div className="flex-shrink-0 p-2 bg-gray-200 rounded-full">
-                  <CircleArrowOutDownRight className="text-blue-600 h-6 w-6" />
+                <div className="flex-shrink-0 p-1 bg-gray-200 rounded-full">
+                  <CircleArrowOutDownRight className="text-green-600 h-6 w-6" />
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-semibold text-green-500">
@@ -155,8 +155,8 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
             <DialogFooter
               className={`${
                 isDarkMode
-                  ? "bg-black text-slate-50  hover:text-gray-900"
-                  : "bg-white text-blue-950"
+                  ? "bg-neutral-950 text-slate-50  hover:text-gray-900"
+                  : "bg-white text-gray-950"
               } px-6 py-4  border-t justify-end`}
             >
               <Button

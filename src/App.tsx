@@ -1,6 +1,6 @@
 
 //import './App.css'
-import LatestTransaction from './components/component/Transaction'
+import LatestTransaction from './components/component/LatestTransaction'
 
 function App() {
 
