@@ -29,30 +29,41 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
     <div>
       <Card
         className={`${
-          isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950 "
+          isDarkMode
+            ? "bg-neutral-950 text-slate-50"
+            : "bg-white text-gray-950 "
         }w-full shadow-lg  p-1  cursor-pointer  `}
         onClick={toggleDialog}
       >
         <CardContent
           className={`${
-            isDarkMode ? "bg-black  text-slate-50" : "bg-white hover:bg-slate-50 text-blue-950 "
-          } flex justify-between items-center flex-wrap gap-2  p-2  w-full `}
+            isDarkMode
+              ? "bg-black text-slate-50"
+              : "bg-white hover:bg-slate-50 text-blue-950"
+          } flex justify-between items-center flex-wrap gap-2 p-0 w-full 
+    ${window.innerWidth < 350 ? "text-sm gap-0" : "p-0"}`}
         >
-          {/* bg-red-400 */}
-          <div className="flex justify-between w-fit items-center  flex-wrap py-2">
-            {/* bg-slate-600  */}
+          <div className="flex justify-between  items-start w-fit items-center  flex-wrap py-2 ">
             {/* Left Icon Section */}
+
             <div className="flex-shrink-0 p-1 bg-gray-100 rounded-full">
               <CircleArrowOutDownRight className="text-green-600 size-6 " />
             </div>
 
-            {/* Center Info Section */}
             <div
               className={`${
-                isDarkMode ? "bg-black text-slate-50" : "bg-white text-gray-950"
-              } flex flex-col justify-center items-start text-left m-1 p-1`}
+                isDarkMode
+                  ? "bg-black text-slate-50"
+                  : "bg-white  text-gray-950"
+              } flex flex-col justify-center items-start text-left m-1 `}
             >
-              <div className="flex  justify-centeritems-center space-x-2 text-lg font-sans">
+              <div
+                className={`flex  justify-center items-center space-x-2 text-lg font-sans ${
+                  isDarkMode
+                    ? "bg-black  text-slate-50"
+                    : "bg-white hover:bg-slate-50 text-blue-950 "
+                } `}
+              >
                 <span>Received</span>
                 <span
                   className={`${
@@ -72,9 +83,10 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
               <p className=" text-sm">11:25 AM</p>
             </div>
           </div>
+
           {/* Right Amount Section */}
+
           <div className=" px-1 py-3 mx-0 flex justify-center flex-col items-center flex-wrap w-fit ">
-            {/* bg-yellow-300 */}
             <p className=" font-bold flex-wrap text-green-500">10,000 {name}</p>
             <p className="text-gray-400 ">107.00 USD</p>
           </div>
@@ -86,12 +98,16 @@ const Cards: React.FC<CardProps> = ({ name, imageSrc, isDarkMode }) => {
           <DialogOverlay className="fixed inset-0 bg-black/50 backdrop-blur-sm " />
           <DialogContent
             className={`${
-              isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950"
-            }fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  rounded-xl shadow-xl lg:w-full max-w-lg [&>button]:hidden sm:vh-screen sm:w-3/4`}
+              isDarkMode
+                ? "bg-neutral-950 text-slate-50"
+                : "bg-white text-gray-950"
+            }fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  md:rounded-xl shadow-xl lg:w-full max-w-lg [&>button]:hidden  sm:h-auto h-[100vh]  sm:w-3/4`}
           >
             <DialogHeader
               className={`${
-                isDarkMode ? "bg-neutral-950  text-slate-50" : "bg-white text-gray-950"
+                isDarkMode
+                  ? "bg-neutral-950  text-slate-50"
+                  : "bg-white text-gray-950"
               } px-6 py-4 border-b`}
             >
               <div className="flex items-center justify-between">

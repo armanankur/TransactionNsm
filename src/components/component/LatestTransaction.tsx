@@ -54,10 +54,10 @@ const LatestTransaction = () => {
         collapsible
         className={`${
           isDarkMode ? "bg-neutral-950 text-slate-50" : "bg-white text-gray-950 "
-        } px-5 py-5`}
+        } px-5 py-2`}
       >
         <AccordionItem value="item-1">
-          <AccordionTrigger className="text-3xl mx-2 my-2 px-2 py-2  font-bold hover:no-underline  w-full">
+          <AccordionTrigger className="text-2xl mx-2 my-2 px-2 py-2  font-semibold hover:no-underline  w-full">
             Latest transactions
           </AccordionTrigger>
           <AccordionContent
@@ -67,7 +67,7 @@ const LatestTransaction = () => {
           >
             <div className="flex flex-col space-y-2 ">
               <div className="flex justify-between ">
-                <p className="text-sky-400 text-2xl ">30 Oct 2024</p>
+                <p className="text-sky-400 text-xl ">30 Oct 2024</p>
                 <div onClick={handleToggle}>
                   <Button
                     variant="outline"
